@@ -31,7 +31,7 @@ ORDER BY length DESC ;
 SELECT avg(length) FROM film ;
 
 #8 What's the average movie duration expressed in format (hours, minutes)?
-SELECT time_format((avg(length)), 'hh:mm') FROM film ;
+SELECT TIME_FORMAT(SEC_TO_TIME(CEIL(AVG(length)*60)), '%H:%i') AS avg_length FROM film;
 
 #9 How many movies longer than 3 hours?
 SELECT title, length FROM film
